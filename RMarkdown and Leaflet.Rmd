@@ -1,0 +1,25 @@
+---
+title: "RMarkdown and Leaflet"
+output: 
+    html_document:
+        toc: true
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Output the current Date
+
+`r format(Sys.time(), '%d %B, %Y')`
+
+## Import leaflet
+```{r import leaflet}
+    suppressPackageStartupMessages(library(leaflet))
+```
+
+## Display the current map of India
+```{r display map}
+    m <- leaflet() %>% addTiles() %>% addMarkers(lng=174.768, lat=-36.852, 
+                                                 popup="I am not here")
+    m 
+```
